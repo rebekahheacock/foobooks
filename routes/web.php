@@ -41,4 +41,4 @@ Route::get('/books/show/{title?}', function($title = '') {
     return 'Your request did not include a title.'
   }
   return 'Results for the book: '.$title;
-});
+})->name('books.show');
