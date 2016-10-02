@@ -33,3 +33,12 @@ Route::get('/books/create', function() {
 Route::post('/books/create', function() {
   dd(Request::all());
 });
+
+// example GET route for /books/show/{title}
+// takes an optional {title} parameter
+Route::get('/books/show/{title?}', function($title = '') {
+  if($title == '') {
+    return 'Your request did not include a title.'
+  }
+  return 'Results for the book: '.$title;
+});
