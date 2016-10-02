@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// example GET route for /books
+Route::get('/books', function() {
+    return 'Here are all the books...';
+});
