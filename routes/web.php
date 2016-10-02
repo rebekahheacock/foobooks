@@ -15,28 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// example GET route for /books
-Route::get('/books', 'BookController@index')->name('books.index');
+// Route::resource generates all seven of the routes listed below
+Route::resource('books', 'BookController');
 
-// example GET and POST routes for /books/create
-Route::get('/books/create', function() {
-  $view  = '<form method="POST" action="/books/create">';
-  $view .= csrf_field(); # This will be explained more later
-  $view .= '<label>Title: <input type="text" name="title"></label>';
-  $view .= '<input type="submit">';
-  $view .= '</form>';
-  return $view;
-});
-
-Route::post('/books/create', function() {
-  dd(Request::all());
-});
-
-// example GET route for /books/show/{title}
-// takes an optional {title} parameter
-Route::get('/books/show/{title?}', function($title = '') {
-  if($title == '') {
-    return 'Your request did not include a title.';
-  }
-  return 'Results for the book: '.$title;
-})->name('books.show');
+// Route::get('/books', 'BookController@index')->name('books.index');
+// Route::get('/books/create', 'BookController@create')->name('books.create');
+// Route::post('/books', 'BookController@store')->name('books.store');
+// Route::get('/books/{book}', 'BookController@show')->name('books.show');
+// Route::get('/books/{book}/edit', 'BookController@edit')->name('books.edit');
+// Route::put('/books/{book}', 'BookController@update')->name('books.update');
+// Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy');

@@ -15,7 +15,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        return 'Hi from the BookController';
+      return 'Display all books.';
     }
 
     /**
@@ -25,7 +25,12 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+      $view  = '<form method="POST" action="/books/create">';
+      $view .= csrf_field(); # This will be explained more later
+      $view .= '<label>Title: <input type="text" name="title"></label>';
+      $view .= '<input type="submit">';
+      $view .= '</form>';
+      return $view;
     }
 
     /**
@@ -36,7 +41,7 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      dd(Request::all());
     }
 
     /**
@@ -47,7 +52,10 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+      if($id == '') {
+        return 'Your request did not include an id.';
+      }
+      return 'Results for the book: '.$id;
     }
 
     /**
