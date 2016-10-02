@@ -16,9 +16,7 @@ Route::get('/', function () {
 });
 
 // example GET route for /books
-Route::get('/books', function() {
-  return 'Here are all the books...';
-});
+Route::get('/books', 'BookController@index')->name('books.index');
 
 // example GET and POST routes for /books/create
 Route::get('/books/create', function() {
