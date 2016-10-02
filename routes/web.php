@@ -17,5 +17,19 @@ Route::get('/', function () {
 
 // example GET route for /books
 Route::get('/books', function() {
-    return 'Here are all the books...';
+  return 'Here are all the books...';
+});
+
+// example GET and POST routes for /books/create
+Route::get('/books/create', function() {
+  $view  = '<form method="POST" action="/books/create">';
+  $view .= csrf_field(); # This will be explained more later
+  $view .= '<label>Title: <input type="text" name="title"></label>';
+  $view .= '<input type="submit">';
+  $view .= '</form>';
+  return $view;
+});
+
+Route::post('/books/create', function() {
+  dd(Request::all());
 });
