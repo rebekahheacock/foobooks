@@ -25,3 +25,12 @@ Route::resource('books', 'BookController');
 // Route::get('/books/{book}/edit', 'BookController@edit')->name('books.edit');
 // Route::put('/books/{book}', 'BookController@update')->name('books.update');
 // Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy');
+
+// set up practice routes to use for testing
+// DO NOT do this in your live application
+// this is messy; you shouldn't use for loops in your routes/web.php file
+// to generate routes
+Route::get('/practice', 'PracticeController@index')->name('practice.index');
+for($i = 0; $i < 100; $i++) {
+    Route::get('/practice/'.$i, 'PracticeController@example'.$i)->name('practice.example'.$i);
+}
