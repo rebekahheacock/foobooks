@@ -26,6 +26,13 @@ Route::resource('books', 'BookController');
 // Route::put('/books/{book}', 'BookController@update')->name('books.update');
 // Route::delete('/books/{book}', 'BookController@destroy')->name('books.destroy');
 
+// single action controller with one method: __invoke
+Route::get('/contact', 'ContactController')->name('contact');
+
+// routes for static pages
+Route::get('/help', 'PageController@help')->name('page.help');
+Route::get('/faq', 'PageController@faq')->name('page.faq');
+
 // set up practice routes to use for testing
 // DO NOT do this in your live application
 // this is messy; you shouldn't use for loops in your routes/web.php file
