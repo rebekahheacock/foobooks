@@ -33,6 +33,7 @@ Route::get('/contact', 'ContactController')->name('contact');
 Route::get('/help', 'PageController@help')->name('page.help');
 Route::get('/faq', 'PageController@faq')->name('page.faq');
 
+// practice route for debugbar
 Route::get('/debugbar', function() {
 
   $data = Array('foo' => 'bar');
@@ -43,6 +44,14 @@ Route::get('/debugbar', function() {
   Debugbar::addMessage('Another message', 'mylabel');
 
   return 'Just demoing some of the features of Debugbar';
+
+});
+
+// practice route for Rych Random
+Route::get('/random', function() {
+
+    $random = new Rych\Random\Random();
+    return $random->getRandomString(8);
 
 });
 
