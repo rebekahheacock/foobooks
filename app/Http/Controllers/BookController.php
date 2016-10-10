@@ -50,12 +50,13 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($title)
     {
-      if($id == '') {
-        return 'Your request did not include an id.';
-      }
-      return 'Results for the book: '.$id;
+        // if($title == '') {
+        // return 'Your request did not include an id.';
+        // }
+        // return 'Results for the book: '.$title;
+        return view('book.show')->with('title', $title);
     }
 
     /**
