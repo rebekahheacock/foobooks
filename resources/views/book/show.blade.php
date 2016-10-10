@@ -1,28 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Show Book</title>
-    <meta charset='utf-8'>
-    <link href="/css/foobooks.css" type='text/css' rel='stylesheet'>
-</head>
-<body>
+@extends('layouts.master')
 
-    <header>
-        <img
-        src='http://making-the-internet.s3.amazonaws.com/laravel-foobooks-logo@2x.png'
-        style='width:300px'
-        alt='Foobooks Logo'>
-    </header>
 
-    <section>
+@section('title')
+    Show book
+@endsection
+
+
+{{--
+This `head` section will be yielded right before the closing </head> tag.
+Use it to add specific things that *this* View needs in the head,
+such as a page specific stylesheets.
+--}}
+@section('head')
+    <link href="/css/books/show.css" type='text/css' rel='stylesheet'>
+@endsection
+
+
+@section('content')
+    @if($title)
         <h1>Show book: {{ $title }}</h1>
-    </section>
+    @else
+        <h1>No book chosen</h1>
+    @endif
+@endsection
 
-    <footer>
-        &copy; {{ date('Y') }}
-    </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-</body>
-</html>
+{{--
+This `body` section will be yielded right before the closing </body> tag.
+Use it to add specific things that *this* View needs at the end of the body,
+such as a page specific JavaScript files.
+--}}
+@section('body')
+    <script src="/js/books/show.js"></script>
+@endsection
