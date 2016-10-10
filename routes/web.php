@@ -63,3 +63,10 @@ Route::get('/practice', 'PracticeController@index')->name('practice.index');
 for($i = 0; $i < 100; $i++) {
     Route::get('/practice/'.$i, 'PracticeController@example'.$i)->name('practice.example'.$i);
 }
+
+// restrict log viewing to local environment
+if (App::environment('local')) {
+  Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+}
+
+
