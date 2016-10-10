@@ -8,6 +8,11 @@ use App\Http\Requests;
 
 class PracticeController extends Controller
 {
+
+    public function example1() {
+        echo 'App debug: '.config('app.debug');
+    }
+
     // on index, list all examples
     public function index() {
         $actionsMethods = get_class_methods($this);
