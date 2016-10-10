@@ -33,6 +33,19 @@ Route::get('/contact', 'ContactController')->name('contact');
 Route::get('/help', 'PageController@help')->name('page.help');
 Route::get('/faq', 'PageController@faq')->name('page.faq');
 
+Route::get('/debugbar', function() {
+
+  $data = Array('foo' => 'bar');
+  Debugbar::info($data);
+  Debugbar::info('Current environment: '.App::environment());
+  Debugbar::error('Error!');
+  Debugbar::warning('Watch out…');
+  Debugbar::addMessage('Another message', 'mylabel');
+
+  return 'Just demoing some of the features of Debugbar';
+
+});
+
 // set up practice routes to use for testing
 // DO NOT do this in your live application
 // this is messy; you shouldn't use for loops in your routes/web.php file
